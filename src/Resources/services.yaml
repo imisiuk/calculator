@@ -1,0 +1,5 @@
+services:
+    calculator:
+        class: Misiyuk\MathBundle\Calculator\Calculator
+    Misiyuk\MathBundle\Calculator\CalculatorInterface:
+        alias: calculator

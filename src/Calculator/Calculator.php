@@ -7,10 +7,16 @@ class Calculator implements CalculatorInterface
     public function calc(string $str): float
     {
         if ($this->isValid($str)) {
-            $str = $this->calcDivision($str);
-            $str = $this->calcMultiplication($str);
-            $str = $this->calcPlus($str);
-            $str = $this->calcMinus($str);
+            $str = $this->calcOperation($str, '/', function (array $v) {
+                return $v[0] / $v[1];
+            });
+            $str = $this->calcOperation($str, '*', function (array $v) {
+                return $v[0] * $v[1];
+            });
+            $str = $this->calcOperation($str, '-', function (array $v) {
+                return $v[0] - $v[1];
+            });
+            $str = $this->calcOperation($str, '+', 'array_sum');
 
             return floatval($str);
         }
@@ -19,38 +25,22 @@ class Calculator implements CalculatorInterface
 
     private function isValid(string $str): bool
     {
-        return (bool) preg_match('#^\d+([\+\-\/\*]\d+)*$#', $str);
+        return (bool) preg_match('#^[\-]?\d+(\.\d+)?([\+\-\/\*]\d+(\.\d+)?)*$#', $str);
     }
 
-    private function calcDivision(string $str): string
+    private function calcOperation(string $str, string $operation, callable $func): string
     {
-        return preg_replace_callback('#\d+/\d+#', function (string $str) {
-            $values = explode('/', $str);
-            return $values[0] / $values[1];
-        }, $str);
-    }
+        $pattern = '#[\-]?\d+(\.\d+)?\\'.$operation.'\d+\.?\d*#';
+        while (preg_match($pattern, $str)) {
+            $str = preg_replace_callback($pattern, function (array $str) use ($operation, $func) {
+                $values = array_map(function (string $v) {
+                    return floatval($v);
+                }, preg_split('#\b\\'.$operation.'#', $str[0]));
 
-    private function calcMultiplication(string $str): string
-    {
-        return preg_replace_callback('#\d+\*\d+#', function (string $str) {
-            $values = explode('*', $str);
-            return $values[0] * $values[1];
-        }, $str);
-    }
+                return $func($values);
+            }, $str);
+        }
 
-    private function calcPlus(string $str): string
-    {
-        return preg_replace_callback('#\d+\+\d+#', function (string $str) {
-            $values = explode('*', $str);
-            return array_sum($values);
-        }, $str);
-    }
-
-    private function calcMinus(string $str): string
-    {
-        return preg_replace_callback('#\d+\-\d+#', function (string $str) {
-            $values = explode('-', $str);
-            return $values[0] - $values[1];
-        }, $str);
+        return $str;
     }
 }
