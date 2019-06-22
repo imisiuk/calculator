@@ -1,6 +1,6 @@
 <?php
 
-namespace Misiyuk\MathBundle\Calculator;
+namespace Misiyuk\Bundle\MathBundle\Math\Calculator;
 
 interface CalculatorInterface
 {

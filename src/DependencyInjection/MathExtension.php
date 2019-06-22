@@ -1,6 +1,6 @@
 <?php
 
-namespace Misiyuk\MathBundle\DependencyInjection;
+namespace Misiyuk\Bundle\MathBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

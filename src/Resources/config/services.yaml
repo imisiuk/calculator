@@ -3,9 +3,9 @@ services:
         autowire: true
         autoconfigure: true
     calculator:
-        class: Misiyuk\MathBundle\Calculator\Calculator
-    Misiyuk\MathBundle\Calculator\CalculatorInterface:
+        class: Misiyuk\MathBundle\Math\Calculator\Calculator
+    Misiyuk\MathBundle\Math\Calculator\CalculatorInterface:
         alias: calculator
     Misiyuk\MathBundle\:
         resource: '../../*'
-        exclude: '../../{DependencyInjection,MathBundle.php}'
+        exclude: '../../{DependencyInjection,Resources,MathBundle.php}'

@@ -1,8 +1,8 @@
 <?php
 
-namespace Misiyuk\MathBundle\Math;
+namespace Misiyuk\Bundle\MathBundle\Math;
 
-use Misiyuk\MathBundle\Calculator\CalculatorInterface;
+use Misiyuk\Bundle\MathBundle\Math\Calculator\CalculatorInterface;
 
 class Math
 {
