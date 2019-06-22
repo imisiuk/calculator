@@ -5,19 +5,14 @@
     "license": "proprietary",
     "authors": [
         {
-            "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "name": "Misiyuk"
         }
     ],
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "symfony/console": "4.3.*",
-        "symfony/dotenv": "4.3.*",
-        "symfony/flex": "^1.1",
-        "symfony/framework-bundle": "4.3.*",
-        "symfony/yaml": "4.3.*"
+        "symfony/framework-bundle": "4.3.*"
     },
     "config": {
         "preferred-install": {
