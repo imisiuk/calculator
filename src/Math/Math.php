@@ -13,7 +13,7 @@ class Math
         $this->calculator = $calculator;
     }
 
-    private function calc(string $str): float
+    public function calc(string $str): float
     {
         return $this->calculator->calc($str);
     }
