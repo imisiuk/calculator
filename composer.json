@@ -44,6 +44,9 @@
         "symfony": {
             "allow-contrib": false,
             "require": "4.3.*"
+        },
+        "branch-alias": {
+            "master": "0.1"
         }
     }
 }
