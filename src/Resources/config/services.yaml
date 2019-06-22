@@ -7,5 +7,5 @@ services:
     Misiyuk\MathBundle\Calculator\CalculatorInterface:
         alias: calculator
     Misiyuk\MathBundle\:
-        resource: '../src/*'
-        exclude: '../src/{DependencyInjection,MathBundle.php}'
+        resource: '../../*'
+        exclude: '../../{DependencyInjection,MathBundle.php}'
