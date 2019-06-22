@@ -3,6 +3,12 @@
     "name": "misiyuk/math-bundle",
     "description": "Math bundle",
     "license": "proprietary",
+    "authors": [
+        {
+            "name": "Symfony Community",
+            "homepage": "https://symfony.com/contributors"
+        }
+    ],
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
@@ -29,24 +35,9 @@
             "Misiyuk\\MathBundle\\Tests\\": "tests/"
         }
     },
-    "replace": {
-        "paragonie/random_compat": "2.*",
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php71": "*",
-        "symfony/polyfill-php70": "*",
-        "symfony/polyfill-php56": "*"
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
     "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "4.3.*"
-        },
         "branch-alias": {
-            "dev-master": "0.1-dev"
+            "dev-master": "1.0-dev"
         }
     }
 }
